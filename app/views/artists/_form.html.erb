@@ -1,0 +1,33 @@
+<%= form_with(model: @artist, local: true, class: "ui form") do |form| %>
+  <% if @artist.errors.any? %>
+    <div id="notice" class="error">
+      <h2><%= pluralize(@artist.errors.count, "error") %> 
+      prohibited this @artist from being saved:</h2>
+
+      <ul>
+      <% @artist.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name,required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_src %>
+    <%= form.text_field :image_src %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit nil, class: "ui button primary" %>
+  </div>
+<% end %>
