@@ -40,5 +40,4 @@ ActiveRecord::Schema.define(version: 2018_09_05_211425) do
   end
 
   add_foreign_key "songs", "artists"
-  add_foreign_key "songs", "billboards"
 end
