@@ -1,3 +1,4 @@
+
 <%= form_with(model: [@song_called, @song], local: true, class: "ui form") do |form| %>
   <% if @song.errors.any? %>
     <div id="notice" class="error">
@@ -26,9 +27,15 @@
     <%= form.text_field :album,required: true %>
   </div>
 
-
+      <div class="field">
+        <%= form.select :artist_id, @artists.collect { |u| [u.name, u.id] } %>
+        <br />
+      </div>
+       
+      
   
   <div class="actions">
-    <%= form.submit nil, class: "ui button primary" %>
+    <%= form.submit 'Add', class: "ui button primary" %>
   </div>
 <% end %>
+

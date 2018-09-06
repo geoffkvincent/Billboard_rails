@@ -10,13 +10,17 @@ class SongsController < ApplicationController
   end
 
   def new
+    @artists = Artist.all
     @song = @song_called.songs.new
     #render partial: "form"
   end
 
   def create
     @song = @song_called.songs.new(song_params)
-    
+    if @song.artist_id.nil?
+      Artist.new(params[:artist])
+    end
+
     if @song.save
       redirect_to [song_called]
     else
@@ -57,7 +61,7 @@ class SongsController < ApplicationController
     end
 
     def song_params
-      params.require(:song).permit(:title, :album, :artist, artist_attributes: [:id,:name])
+      params.require(:song).permit(:title, :album, :artist_id)
     end 
        
 end
