@@ -12,10 +12,23 @@
     <div class="description">
    <p> <%= @artist.description%></p>
     </div>
-    </div>
+    </div><br/>
     <div class="extra content">
-      <%= link_to 'Edit', edit_artist_path(@artist) %> |
+      <%= link_to 'Edit', edit_artist_path(@artist) %> 
       <%= link_to 'Back', artists_path %>
+      <%= link_to 'Add Song', new_artist_song_path(@artist) %>
+    </div>
+    <div>
+      <ul>
+        <% @artist.songs.each do |song| %>
+          <li>
+            <%= song.title%> <%= song.album %>
+            <%= link_to 'Edit', edit_artist_song_path(@artist, song) %> 
+            <%= link_to 'Delete', [@artist,song], method: :delete, 
+            data: { confirm: "Are you sure?" }  %> 
+          </li>
+          <%end%>
+      </ul>
     </div>
   </div>
 </div>

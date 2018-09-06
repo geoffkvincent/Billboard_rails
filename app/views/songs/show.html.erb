@@ -1,6 +1,11 @@
-<h1><%= @sub.name %> - <%= @topic.name %></h1>
+<h1><%= @song.title %></h1>
+<h1><%= @song.album %></h1>
 
 
-<%= link_to 'Edit Song', edit_artist_song_path([@artist, @song]) %>
-<%= link_to 'Delete Song', [@artist, @song], method: :delete %>
-<%= link_to 'Back To Songs', artist_songs_path(@artist) %>
+<%= link_to 'Edit', 
+    params[:billboard_id] ? edit_billboard_song_path([@billboard, @song]) : edit_artist_song_path([@artist, @song])
+  %>
+  <%= link_to 'Delete', params[:billboard_id] ? [@billboard, @song] : [@artist, @song] , method: :delete %>
+  <%= link_to 'Back', 
+    params[:billboard_id] ? billboard_path(params[:billboard_id]) : artist_path(params[:artist_id])
+  %>
