@@ -1,9 +1,9 @@
 class SongsController < ApplicationController
-  before_action :song_called#, :set_artist
+  before_action :song_called
   before_action :set_song, except: [:index, :new, :create]
 
   def index
-    @songs = @song_called.songs
+    @songs = @song_called.songs.order("created_by ASC")
   end
 
   def show
@@ -11,16 +11,17 @@ class SongsController < ApplicationController
 
   def new
     @artists = Artist.all
+    
     @song = @song_called.songs.new
     #render partial: "form"
+    if @song.artist_id.nil?
+      @artist = Artist.new
+   end
+    
   end
 
   def create
     @song = @song_called.songs.new(song_params)
-    if @song.artist_id.nil?
-      Artist.new(params[:artist])
-    end
-
     if @song.save
       redirect_to [song_called]
     else
@@ -29,7 +30,7 @@ class SongsController < ApplicationController
   end
 
   def edit
-    render partial: "form"
+    @artists = Artist.all
   end
 
   def update

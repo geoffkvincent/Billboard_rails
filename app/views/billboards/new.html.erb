@@ -1,2 +1,6 @@
-<h1>Billboards#new</h1>
-<p>Find me in app/views/billboards/new.html.erb</p>
+<%= render '/layouts/navbar' %> 
+<div class="container">
+  <%= render 'form', billboard: @billboard %>
+  
+  <%= link_to 'Back', billboards_path %>
+</div>

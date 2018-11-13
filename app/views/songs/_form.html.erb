@@ -18,24 +18,27 @@
   </div>
 
   <div class="field">
-    <%= form.label :artist %>
-    <%= form.text_field :artist,required: true %>
-  </div>
-
-  <div class="field">
     <%= form.label :album %>
     <%= form.text_field :album,required: true %>
   </div>
 
       <div class="field">
         <%= form.select :artist_id, @artists.collect { |u| [u.name, u.id] } %>
-        <br />
       </div>
-       
-      
-  
+      <div class="field">
+      <%if @song.artist_id.nil?%>
+       Artist not in list? <%= link_to 'Click Here', new_artist_path%>
+      <% end %>
+      </div>
+
+      <div class="ui modal">
+        <div class="header">Add Artist</div>
+          <div class="content">
+            <%= render 'artists/form', artist: @artist%>
+        </div>
+      </div>
   <div class="actions">
-    <%= form.submit 'Add', class: "ui button primary" %>
+    <%= form.submit nil, class: "ui button primary" %>
   </div>
 <% end %>
 

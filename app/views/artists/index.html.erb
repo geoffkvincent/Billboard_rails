@@ -1,11 +1,10 @@
 
-<p id="notice"><%= notice %></p>
 
+<%= render '/layouts/navbar' %> 
+<p id="notice"><%= notice %></p>
 <h1 class="ui header">Artists</h1>
-  <div>
-    <%= link_to 'Back to Billboard', billboards_path %>
-  </div>
-  <div>
+  <div id='artist'>
+    <%= link_to 'Back to Billboard', billboards_path %><br/><br/>
     <%= link_to 'New Artist', new_artist_path %>
   </div>
 <div class="ui divider"></div>

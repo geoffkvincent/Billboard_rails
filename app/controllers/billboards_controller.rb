@@ -10,16 +10,14 @@ class BillboardsController < ApplicationController
 
   def new
     @billboard = Billboard.new
-    render partial: "form"
   end
 
   def edit
-    render partial: "form"
+    @billboard
   end
 
   def create
     @billboard = Billboard.new(billboard_params)
-
     if @billboard.save
       redirect_to billboards_path
     else

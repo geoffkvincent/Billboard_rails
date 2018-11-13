@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2018_09_06_215436) do
     t.bigint "billboard_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ratings"
     t.index ["artist_id"], name: "index_songs_on_artist_id"
     t.index ["billboard_id"], name: "index_songs_on_billboard_id"
   end

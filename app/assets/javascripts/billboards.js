@@ -1,2 +1,10 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
+
+function incrementValue(event)
+{
+   var value = parseInt(event.target.textContent);
+   value = isNaN(value) ? 0 : value;
+   value++;
+   event.target.textContent = value.toString()
+  
+}
+

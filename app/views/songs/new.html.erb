@@ -1,8 +1,9 @@
+<%= render '/layouts/navbar' %> 
 <div class="container">
 <h1>New Song</h1>
 
 <%= render 'form', song: @song %>
-
+<br/>
 <%= link_to 'Back', 
     params[:billboard_id] ? billboard_path(params[:billboard_id]) : artist_path(params[:artist_id])
   %>

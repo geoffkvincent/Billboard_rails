@@ -1,13 +1,17 @@
-<h1>Billboards</h1>
-  <div>
-    <%= link_to 'Artist', artists_path %>
-  </div>
-  <div>
-    <%= link_to 'New Billboard', new_billboard_path %>
-  </div>
-<ul>
-  <% @billboards.each do |billboard| %>
-    <li><%= link_to billboard.name, billboard %></li>
-  <% end %>
-  
-</ul>
+<div>
+<%= render '/layouts/navbar' %>
+    <div id="billboard">
+      <%= link_to 'New Billboard', new_billboard_path %>
+    </div>
+  <ul>
+    <% @billboards.each do |billboard| %>
+      <div class="sixteen wide mobile eight wide tablet four wide computer column">
+        <div class="ui card">
+            <div class="content">
+                <%=link_to billboard.name, billboard, class: "header" %>
+            </div>
+        </div>
+      </div>
+    <% end %>
+  </ul>
+</div>
