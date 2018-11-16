@@ -1,4 +1,4 @@
 class Artist < ApplicationRecord
   has_many :songs, dependent: :destroy
-  has_many :
+  has_many :bill
 end
