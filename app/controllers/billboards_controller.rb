@@ -4,8 +4,7 @@ class BillboardsController < ApplicationController
     @billboards = Billboard.all
   end
 
-  def show
-    
+  def show  
   end
 
   def new
